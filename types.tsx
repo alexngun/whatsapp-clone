@@ -15,7 +15,7 @@ declare global {
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Modal: undefined;
+  Chat: undefined;
   NotFound: undefined;
 };
 
@@ -27,9 +27,31 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
+  TabThree: undefined;
+  TabFour: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
+
+export type User = {
+  id: string,
+  name: string,
+  imageUri: string
+}
+
+export type Message = {
+  id: string;
+  content: string;
+  createdAt: string;
+  
+}
+
+export type ChatRoom = {
+  id: string;
+  users: Array<User>;
+  lastMessage: Message;
+}
+
